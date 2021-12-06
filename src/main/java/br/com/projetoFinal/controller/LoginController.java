@@ -31,7 +31,9 @@ public class LoginController extends HttpServlet {
 					
 					request.getSession().setAttribute("email", email);
 					request.getSession().setAttribute("senha", senha);
-	                response.sendRedirect(request.getContextPath() + "/inicio.jsp");
+                	RequestDispatcher dispatcher = request.getRequestDispatcher("/inicio.jsp");
+            		dispatcher.forward(request, response);
+
 	                } else {
 	                	RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp?pmensagem=Usuario ou senha incorretos. Tente novamente!");
 	            		dispatcher.forward(request, response);

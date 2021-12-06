@@ -48,9 +48,9 @@ public class TelefoneDao {
 
 	public Telefone findById(Integer id) throws SQLException {
 		try (Connection conexao = ConnectionFactory.conectar()) {
-			String sql = "SELECT * FROM a.telefone, b.usuarios WHERE a.id = ? AND a.idUsuario = b.id ORDER BY b.nome;";
+			String sql = "SELECT * FROM telefone WHERE id = ? ORDER BY id;";
 			try (PreparedStatement stm = conexao.prepareStatement(sql)) {
-				stm.setLong(1, id);
+				stm.setInt(1, id);
 				try (ResultSet rs = stm.executeQuery()) {
 					if (rs.next()) {
 						telefone.setId(rs.getInt("id"));
