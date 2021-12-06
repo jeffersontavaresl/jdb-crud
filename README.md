@@ -1,23 +1,23 @@
-CRUD-JDBC-DataInfo
+# CRUD-JDBC-DataInfo
 CRUD realizado para a conclusão da Capacitação Recife.
 
-Projeto com a estrutura MVC.
+<strong>Projeto com a estrutura MVC.</strong>
 
-Funções:
-Consultar usuário
-Consultar todos os usuários
-Adicionar/Remover/Alterar usuários
+<strong>Funções:</strong> </br>
+Consultar usuário </br>
+Consultar todos os usuários </br>
+Adicionar/Remover/Alterar usuários </br>
 
-Consultar todos os telefones
-Adicionar/Remover/Alterar telefones
+Consultar todos os telefones </br>
+Adicionar/Remover/Alterar telefones </br>
 
-Ferramentas e Tecnologias utilizadas:
-Eclipse
-Maven
-JDBC
-HTML
-CSS
-Bootstrap
-PostgreSQL
-Java EE
-Ajax
+<strong>Ferramentas e Tecnologias utilizadas: </strong></br>
+Eclipse </br>
+Maven </br>
+JDBC </br>
+HTML </br>
+CSS </br> 
+Bootstrap </br>
+PostgreSQL </br>
+Java EE </br>
+
