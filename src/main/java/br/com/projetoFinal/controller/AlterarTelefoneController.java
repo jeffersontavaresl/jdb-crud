@@ -30,7 +30,6 @@ public class AlterarTelefoneController extends HttpServlet {
 
 			} else {
 				response.sendRedirect("consultarTelefone.jsp?pmensagem=Erro ao atualizar telefone!");
-
 			}
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();

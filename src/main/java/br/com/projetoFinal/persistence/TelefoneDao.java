@@ -172,26 +172,4 @@ public class TelefoneDao {
 			return false;
 		}
 	}
-
-	/**
-	 * MÉTODO PARA DELETAR TODOS OS TELEFONES CADASTRADOS NO MESMO USUÁRIO
-	 * 
-	 * @param id Identificação do usuário
-	 * @return verifica se os dados existem no banco
-	 * 
-	 */
-
-	public boolean deleteTelefoneByUser(Integer id) throws SQLException {
-		try (Connection conexao = ConnectionFactory.conectar()) {
-			String sql = "DELETE FROM telefone WHERE idUsuario = ?";
-			try (PreparedStatement stm = conexao.prepareStatement(sql)) {
-				stm.setInt(1, id);
-				stm.execute();
-				return true;
-			} catch (SQLException ex) {
-				System.out.println("Erro: " + ex.getMessage());
-			}
-			return false;
-		}
-	}
 }

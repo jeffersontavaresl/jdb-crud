@@ -8,9 +8,9 @@ public class ConnectionFactory {
 
     public static Connection conectar(){
         Connection con = null;
-        String url = "jdbc:postgresql://localhost:5432/projetofinal";
+        String url = "jdbc:postgresql://projetofinal.ckbaie7bmh03.sa-east-1.rds.amazonaws.com:5432/projetofinal";
         String user = "postgres";
-        String password = "admin";
+        String password = "projetofinal";
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(url, user, password);
@@ -20,3 +20,6 @@ public class ConnectionFactory {
         return con;                
     }
 }
+
+
+

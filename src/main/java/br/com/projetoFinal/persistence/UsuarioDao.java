@@ -13,7 +13,7 @@ import br.com.projetoFinal.model.Usuario;
 public class UsuarioDao {
 
 	/**
-	 * MÉTODO PARA INSERIR UM USUÁRIO NO BANCO DE DADOS
+	 * MÃ‰TODO PARA INSERIR UM USUÃ�RIO NO BANCO DE DADOS
 	 * 
 	 * @return
 	 * @throws SQLException
@@ -36,9 +36,9 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÉTODO PARA PROCURAR UM USUÁRIO NO BANCO ATRAVÉS DO ID
+	 * MÃ‰TODO PARA PROCURAR UM USUÃ�RIO NO BANCO ATRAVÃ‰S DO ID
 	 * 
-	 * @param id identificação do usuário
+	 * @param id identificaÃ§Ã£o do usuÃ¡rio
 	 * @return retorna o usuario
 	 * @throws SQLException
 	 */
@@ -65,11 +65,11 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÉTODO QUE GERA UMA LISTA COM TODOS OS DADOS DE UM USUÁRIO ESPECIFICADO PELO
+	 * MÃ‰TODO QUE GERA UMA LISTA COM TODOS OS DADOS DE UM USUÃ�RIO ESPECIFICADO PELO
 	 * ID
 	 * 
 	 * @param id
-	 * @return lista com os dados do usuário informado
+	 * @return lista com os dados do usuÃ¡rio informado
 	 * @throws SQLException
 	 */
 
@@ -96,9 +96,9 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÉTODO PARA BUSCAR TODOS OS USUÁRIOS NO BANCO
+	 * MÃ‰TODO PARA BUSCAR TODOS OS USUÃ�RIOS NO BANCO
 	 * 
-	 * @return lista com todos os usuários
+	 * @return lista com todos os usuÃ¡rios
 	 * @throws SQLException
 	 */
 
@@ -123,7 +123,7 @@ public class UsuarioDao {
 		}
 	}
 
-	/** MÉTODO PARA CRIAR UMA LISTA COM TODOS OS TELEFONES LIGADOS A UM ÚNICO USUÁRIO
+	/** MÃ‰TODO PARA CRIAR UMA LISTA COM TODOS OS TELEFONES LIGADOS A UM ÃšNICO USUÃ�RIO
 	 * 
 	 * @param id
 	 * @return
@@ -161,9 +161,9 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÉTODO PARA ATUALIZAR OS DADOS DO USUÁRIO
+	 * MÃ‰TODO PARA ATUALIZAR OS DADOS DO USUÃ�RIO
 	 * 
-	 * @return true caso seja concluído com sucesso
+	 * @return true caso seja concluÃ­do com sucesso
 	 * @throws SQLException
 	 */
 
@@ -185,17 +185,15 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÉTODOS PARA DELETAR O USUÁRIO E TODOS OS NÚMEROS CADASTRADOS COM ELE
+	 * MÃ‰TODOS PARA DELETAR O USUÃ�RIO E TODOS OS NÃšMEROS CADASTRADOS COM ELE
 	 * 
-	 * @param id identificação do usuário
-	 * @return confirmação da ação
+	 * @param id identificaÃ§Ã£o do usuÃ¡rio
+	 * @return confirmaÃ§Ã£o da aÃ§Ã£o
 	 */
 	public boolean delete(Integer id) throws SQLException {
 		try (Connection conexao = ConnectionFactory.conectar()) {
-			TelefoneDao tel = new TelefoneDao();
 			String sql = "DELETE FROM usuarios WHERE id = ?;";
 			try (PreparedStatement stm = conexao.prepareStatement(sql)) {
-				tel.deleteTelefoneByUser(id);
 				stm.setInt(1, id);
 				stm.execute();
 				return true;

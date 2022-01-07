@@ -1,6 +1,3 @@
-DROP TABLE telefone;
-DROP TABLE usuarios;
-
 CREATE TABLE IF NOT EXISTS telefone(
 	id BIGSERIAL NOT NULL, 
 	ddd BIGINT NOT NULL, 
@@ -17,4 +14,4 @@ CREATE TABLE IF NOT EXISTS usuarios(
 	PRIMARY KEY (id));
 
 ALTER TABLE telefone ADD CONSTRAINT fk_idusuario 
-FOREIGN KEY (idUsuario) REFERENCES usuarios(id);
+FOREIGN KEY (idUsuario) REFERENCES usuarios(id) ON DELETE CASCADE;
