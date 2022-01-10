@@ -16,9 +16,9 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-8">
+			<div class="col-12">
 				<h2>Login</h2>
-				<div class="card" style="width: 68rem;">
+				<div class="card">
 			  		<div class="card-body">
 						<!-- GERA A MENSAGEM DE CONFIRMAÇÃO QUANDO OCORRE ALGUMA ALTERAÇÃO -->
 						<%	if (request.getParameter("pmensagem") != null) {	%>

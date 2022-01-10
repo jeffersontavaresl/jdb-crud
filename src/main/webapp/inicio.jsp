@@ -18,23 +18,14 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 <title>Projeto Datainfo</title>
-<!--  SCRIPT JQUERY PARA LIMPAR OS DADOS DA TELA -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$("button").click(function() {
-			$("#tabela").remove();
-		});
-	});
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-8">
+		<div class="row"><br>
+			<div class="col-12">
 				<h2>Inicio</h2>
-				<div class="card" style="width: 68rem;">
+				<div class="card">
 					<div class="card-body">
 						<form action="inicio.jsp" method="post">
 							<%
@@ -67,7 +58,8 @@
 
 							<!-- LISTA COM TODOS OS USUÁRIOS CADASTRADOS -->
 							<div class="col-12">
-								<label class="visually-hidden" for="usuarios">Usuários</label> <select
+								<label for="usuarios">Usuários</label> 
+								 <select
 									class="form-select" name="id" id="usuarios">
 									<%
 									for (Usuario u : users) {
@@ -80,14 +72,8 @@
 									%>
 								</select><br>
 							</div>
-							<button class="btn btn-primary" type="submit">Consultar</button>
-							<a href="cadastrarTelefone.jsp"><button
-									class="btn btn-primary" type="button">Cadastrar
-									Telefone</button></a> <a href="logout">
-								<button class="btn btn-danger" type="button"
-									class="btn btn-primary">Logout</button>
-							</a>
-
+						<button class="btn btn-primary" type="submit">Consultar Usuário</button> 
+						<a href="logout"> <button class="btn btn-danger" type="button">Logout</button></a>					
 						</form>
 						<table class="table table-striped">
 							<thead>
@@ -135,12 +121,10 @@
 								%>
 							</tbody>
 						</table>
-						<a href="usuario.jsp">
-							<button class="btn btn-primary">Consultar Todos</button>
-						</a> <a href="consultarTelefone.jsp"><button type="button"
-								class="btn btn-primary">Consultar Telefones</button></a>
-						<button class="btn btn-primary">Limpar busca</button>
-
+						<a href="usuario.jsp"><button class="btn btn-primary">Consultar Todos Usuários</button></a> 
+						<a href="consultarTelefone.jsp"><button type="button" class="btn btn-primary">Consultar Telefones</button></a>
+						<a href="telefone"><button	class="btn btn-primary" type="button">Cadastrar Telefone</button></a>
+						<button class="btn btn-warning">Limpar busca</button>
 					</div>
 				</div>
 			</div>
@@ -148,5 +132,13 @@
 	</div>
 	<script src="https://kit.fontawesome.com/941d2c80e7.js"
 		crossorigin="anonymous"></script>
+	<!--  SCRIPT JQUERY PARA LIMPAR OS DADOS DA TELA -->
+	<script>
+	$(document).ready(function() {
+		$("button").click(function() {
+			$("#tabela").remove();
+		});
+	});
+	</script>
 </body>
 </html>

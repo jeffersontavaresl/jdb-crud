@@ -3,6 +3,7 @@ package br.com.projetoFinal.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,27 +15,38 @@ import br.com.projetoFinal.persistence.TelefoneDao;
 public class AlterarTelefoneController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/alterarTelefone.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		TelefoneDao teldao = new TelefoneDao();
-		Telefone telefone = null;
-		
+
 		Integer idTelefone = Integer.valueOf(request.getParameter("idTelefone").trim());
 		Integer ddd = Integer.valueOf(request.getParameter("ddd").trim());
 		String numero = request.getParameter("numero").trim();
 		String tipo = request.getParameter("tipo");
-		
-		telefone = new Telefone(idTelefone, ddd, numero, tipo);
+
+		Telefone telefone = new Telefone(idTelefone, ddd, numero, tipo);
+
 		try {
-			if(teldao.update(telefone)) {
-				response.sendRedirect("consultarTelefone.jsp?pmensagem=Telefone atualizado com sucesso!");
+			if (teldao.update(telefone)) {
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Telefone atualizado com sucesso!");
+				dispatcher.forward(request, response);
 
 			} else {
-				response.sendRedirect("consultarTelefone.jsp?pmensagem=Erro ao atualizar telefone!");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Erro ao atualizar telefone!");
+				dispatcher.forward(request, response);
 			}
-		} catch (SQLException | IOException e) {
+		} catch (SQLException | ServletException | IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 }
-

@@ -23,7 +23,6 @@ public class UsuarioController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Usuario usuario = null;
 		UsuarioDao user = new UsuarioDao();
 
 		// VERIFICA SE OS CAMPOS DIGITADOS ESTÃO EM BRANCO
@@ -35,7 +34,7 @@ public class UsuarioController extends HttpServlet {
 				String senha = request.getParameter("senha").trim();
 				String email = request.getParameter("email").trim();
 				
-				usuario = new Usuario(nome, email, senha);
+				Usuario usuario = new Usuario(nome, email, senha);
 				if (user.insert(usuario)) {
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp?pmensagem=Usuario cadastro com sucesso!");
 					dispatcher.forward(request, response);

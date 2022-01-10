@@ -3,6 +3,7 @@ package br.com.projetoFinal.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,10 +14,16 @@ import br.com.projetoFinal.persistence.UsuarioDao;
 
 public class AlterarDadosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/alterarDados.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Usuario usuario = null;
+
 		UsuarioDao user = new UsuarioDao();
 
 		// VERIFICA SE OS CAMPOS DIGITADOS ESTÃO EM BRANCO
@@ -29,7 +36,7 @@ public class AlterarDadosController extends HttpServlet {
 					String senha = request.getParameter("senha").trim();
 					String email = request.getParameter("email").trim();
 					
-					usuario = new Usuario(id, nome, email, senha);
+					Usuario usuario = new Usuario(id, nome, email, senha);
 
 					if (user.update(usuario)) {
 						response.sendRedirect("inicio.jsp?pmensagem=Usuario atualizado com sucesso!");

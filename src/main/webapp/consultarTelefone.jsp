@@ -25,9 +25,9 @@
 	%>
 	<div class="container">
 		<div class="row">
-			<div class="col-8">
+			<div class="col-12">
 				<h2>Consultar Telefones</h2>
-				<div class="card" style="width: 68rem;">
+				<div class="card">
 					<div class="card-body">
 
 						<!-- GERA A MENSAGEM DE CONFIRMAÇÃO QUANDO OCORRE ALGUMA ALTERAÇÃO -->
@@ -60,7 +60,7 @@
 									<td><%=t.getNumero()%></td>
 									<td><%=t.getTipo()%></td>
 									<td><%=t.getNomeUsuario()%></td>
-									<td><%="<a class='btn' href=alterarTelefone.jsp?idTelefone=" + t.getId() + ">" + "<i class='far fa-edit'></i></a>"%></td>
+									<td><%="<a class='btn' href=alterarTelefone?idTelefone=" + t.getId() + ">" + "<i class='far fa-edit'></i></a>"%></td>
 									<td><%="<a class='btn' href=excluirTelefone?idTelefone=" + t.getId() + ">" + "<i class='fas fa-trash-alt'></i></a>"%></td>
 									<%
 									t.getIdUsuario();

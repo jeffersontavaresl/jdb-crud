@@ -24,9 +24,9 @@
 	%>
 	<div class="container">
 		<div class="row">
-			<div class="col-8">
+			<div class="col-12">
 				<h2>Consulta Todos Usuários</h2>
-				<div class="card" style="width: 68rem;">
+				<div class="card">
 					<div class="card-body">
 						<!-- GERA A MENSAGEM DE CONFIRMAÇÃƒO QUANDO OCORRE ALGUMA ALTERAÇÃO -->
 						<%
@@ -56,7 +56,7 @@
 									<td><%=u.getId()%></td>
 									<td><%=u.getNome()%></td>
 									<td><%=u.getEmail()%></td>
-									<td><%="<a class='btn' href=alterarDados.jsp?idUsuario=" + u.getId() + ">" + "<i class='far fa-edit'></i></a>"%></td>
+									<td><%="<a class='btn' href=dados?idUsuario=" + u.getId() + ">" + "<i class='far fa-edit'></i></a>"%></td>
 									<td><%="<a class='btn' href=excluir?idUsuario=" + u.getId() + ">" + "<i class='fas fa-trash-alt'></i></a>"%></td>
 								</tr>
 								<%
