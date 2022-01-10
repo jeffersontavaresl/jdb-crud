@@ -34,17 +34,17 @@ public class TelefoneController extends HttpServlet {
 				String tipo = request.getParameter("tipo");
 				Integer idUsuario = Integer.valueOf(request.getParameter("idUsuario"));
 
-				System.out.println(ddd);
-
 				Telefone telefone = new Telefone(ddd, numero, tipo, idUsuario);
-
-				if (tel.insert(telefone)) {
-					RequestDispatcher dispatcher = request
-							.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Telefone cadastrado com sucesso!");
-					dispatcher.forward(request, response);
+				
+				if(!tel.findTelByNumber(numero, idUsuario)) {
+					if (tel.insert(telefone)) {
+						RequestDispatcher dispatcher = request
+								.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Telefone cadastrado com sucesso!");
+						dispatcher.forward(request, response);
+					}
 				} else {
 					RequestDispatcher dispatcher = request
-							.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Erro ao cadastrar telefone!");
+							.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Telefone ja existe nos seus contatos!");
 					dispatcher.forward(request, response);
 				}
 			} catch (SQLException | IOException e) {

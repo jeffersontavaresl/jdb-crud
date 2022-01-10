@@ -25,6 +25,7 @@ public class AlterarTelefoneController extends HttpServlet {
 			throws ServletException, IOException {
 		TelefoneDao teldao = new TelefoneDao();
 
+		Integer idUsuario = Integer.valueOf(request.getParameter("idUsuario"));
 		Integer idTelefone = Integer.valueOf(request.getParameter("idTelefone").trim());
 		Integer ddd = Integer.valueOf(request.getParameter("ddd").trim());
 		String numero = request.getParameter("numero").trim();
@@ -33,14 +34,15 @@ public class AlterarTelefoneController extends HttpServlet {
 		Telefone telefone = new Telefone(idTelefone, ddd, numero, tipo);
 
 		try {
-			if (teldao.update(telefone)) {
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Telefone atualizado com sucesso!");
-				dispatcher.forward(request, response);
-
+			if (!teldao.findTelByNumber(numero, idUsuario)) {
+				if (teldao.update(telefone)) {
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Telefone atualizado com sucesso!");
+					dispatcher.forward(request, response);
+				}
 			} else {
 				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Erro ao atualizar telefone!");
+						.getRequestDispatcher("/consultarTelefone.jsp?pmensagem=Telefone ja esta cadastrado na sua agenda!");
 				dispatcher.forward(request, response);
 			}
 		} catch (SQLException | ServletException | IOException e) {

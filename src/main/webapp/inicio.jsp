@@ -113,7 +113,7 @@
 										</select>
 									</div>
 									</td>
-									<td><%="<a class='btn' href=alterarDados.jsp?idUsuario=" + u.getId() + ">" + "<i class='far fa-edit'></i></a>"%></td>
+									<td><%="<a class='btn' href=dados?idUsuario=" + u.getId() + ">" + "<i class='far fa-edit'></i></a>"%></td>
 									<td><%="<a class='btn' href=excluir?idUsuario=" + u.getId() + ">" + "<i class='fas fa-trash-alt'></i></a>"%></td>
 								</tr>
 								<%

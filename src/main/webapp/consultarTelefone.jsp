@@ -60,7 +60,7 @@
 									<td><%=t.getNumero()%></td>
 									<td><%=t.getTipo()%></td>
 									<td><%=t.getNomeUsuario()%></td>
-									<td><%="<a class='btn' href=alterarTelefone?idTelefone=" + t.getId() + ">" + "<i class='far fa-edit'></i></a>"%></td>
+									<td><%="<a class='btn' href=alterarTelefone?idTelefone=" + t.getId() + "&idUsuario=" + t.getIdUsuario() + ">" + "<i class='far fa-edit'></i></a>"%></td>
 									<td><%="<a class='btn' href=excluirTelefone?idTelefone=" + t.getId() + ">" + "<i class='fas fa-trash-alt'></i></a>"%></td>
 									<%
 									t.getIdUsuario();

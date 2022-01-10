@@ -176,4 +176,27 @@ public class TelefoneDao {
 			return false;
 		}
 	}
+	
+	public boolean findTelByNumber(String number, Integer userId) throws SQLException {
+		try (Connection conexao = ConnectionFactory.conectar()){
+			String sql = "SELECT telefone.numero "
+					+ "FROM telefone "
+					+ "	JOIN usuarios "
+					+ "		ON telefone.idUsuario = usuarios.id "
+					+ "WHERE telefone.numero = ? "
+					+ "AND usuarios.id = ?";
+			try (PreparedStatement stm = conexao.prepareStatement(sql)){
+				stm.setString(1, number);
+				stm.setInt(2, userId);
+				try (ResultSet rs = stm.executeQuery()) {
+					if (rs.next()) {
+						return true;
+					}
+				} catch (SQLException e) {
+					System.out.println("Erro: " + e.getMessage());
+				}
+				return false;
+			}
+		}
+	}
 }

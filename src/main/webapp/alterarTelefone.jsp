@@ -20,10 +20,11 @@
 					<div class="card-body">
 						<%
 						// RECEBE O ID DO TELEFONE QUE FOI PASSADO NA TELA DE CONSULTA
+						String idUsuario = request.getParameter("idUsuario");
 						String idTelefone = request.getParameter("idTelefone");
 						%>
 						<form id="formAlterarTelefone" method="post">
-						
+						<input hidden="true" id="idUsuario" name= "idUsuario" value="<%=idUsuario%>">
 						<input hidden="true" id="idTelefone" name="idTelefone" value="<%=idTelefone%>">
 						
 							<div class="row mb-3">
