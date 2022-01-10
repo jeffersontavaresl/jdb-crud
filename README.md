@@ -15,11 +15,9 @@ Adicionar/Remover/Alterar telefones </br>
 Eclipse </br>
 Maven </br>
 JDBC </br>
-HTML </br>
-CSS </br> 
+JSP com Ajax Jquery </br>
 Bootstrap </br>
 PostgreSQL </br>
 Java EE </br>
-Ajax Jquery </br>
 
 projeto online em: http://projetofinal-env.eba-vuaabmjg.sa-east-1.elasticbeanstalk.com/login
