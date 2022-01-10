@@ -39,7 +39,7 @@ public class UsuarioController extends HttpServlet {
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp?pmensagem=Usuario cadastro com sucesso!");
 					dispatcher.forward(request, response);
 				} else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastro.jsp?pmensagem=E-mail ja existe no sistema!");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp?pmensagem=E-mail ja existe no sistema!");
 					dispatcher.forward(request, response);
 				}
 			} catch (SQLException | IOException e) {

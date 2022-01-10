@@ -123,7 +123,7 @@
 						</table>
 						<a href="usuario.jsp"><button class="btn btn-primary">Consultar Todos Usuários</button></a> 
 						<a href="consultarTelefone.jsp"><button type="button" class="btn btn-primary">Consultar Telefones</button></a>
-						<a href="telefone"><button	class="btn btn-primary" type="button">Cadastrar Telefone</button></a>
+						<a href="cadastroTelefone"><button	class="btn btn-primary" type="button">Cadastrar Telefone</button></a>
 						<button class="btn btn-warning">Limpar busca</button>
 					</div>
 				</div>

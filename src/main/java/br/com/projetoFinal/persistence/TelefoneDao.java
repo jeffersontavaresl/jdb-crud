@@ -80,10 +80,11 @@ public class TelefoneDao {
 	public List<Telefone> findByIdList(Integer id) throws SQLException {
 		try (Connection conexao = ConnectionFactory.conectar()) {
 			List<Telefone> lista = new ArrayList<>();
-			String sql = "SELECT a.id, a.nome, a.email, b.id, b.ddd, b.numero, b.tipo, b.idUsuario "
-					+ "FROM usuarios a, telefone b "
-					+ "WHERE b.id = ? AND a.id = b.idUsuario "
-					+ "ORDER BY a.nome;";
+			String sql = "SELECT * FROM telefone a "
+					+ 	 "JOIN usuarios b "
+					+ 	 "	ON a.idUsuario = b.id "
+					+ 	 "WHERE a.id = ? "
+					+ 	 "ORDER BY b.nome;";
 			try (PreparedStatement stm = conexao.prepareStatement(sql)) {
 				stm.setInt(1, id);
 				ResultSet rs = stm.executeQuery();
@@ -113,8 +114,11 @@ public class TelefoneDao {
 	public List<Telefone> findAll() throws SQLException {
 		try (Connection conexao = ConnectionFactory.conectar()) {
 			List<Telefone> lista = new ArrayList<>();
-			String sql = "SELECT a.id, a.ddd, a.numero, a.tipo, a.idUsuario, b.id, b.nome "
-					+ "FROM telefone a, usuarios b " + "WHERE b.id = a.idUsuario ORDER BY b.nome;";
+			String sql = "SELECT * FROM telefone a "
+					+ 	 "JOIN usuarios b "
+					+ 	 "	ON a.idUsuario = b.id "
+					+ 	 "WHERE a.idUsuario = b.id "
+					+ 	 "ORDER BY b.nome;";
 			try (PreparedStatement stm = conexao.prepareStatement(sql)) {
 				try (ResultSet rs = stm.executeQuery()) {
 					while (rs.next()) {

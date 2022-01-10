@@ -13,7 +13,7 @@ import br.com.projetoFinal.model.Usuario;
 public class UsuarioDao {
 
 	/**
-	 * MÃ‰TODO PARA INSERIR UM USUÃ�RIO NO BANCO DE DADOS
+	 * METODO PARA INSERIR UM USUARIO NO BANCO DE DADOS
 	 * 
 	 * @return
 	 * @throws SQLException
@@ -36,9 +36,9 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÃ‰TODO PARA PROCURAR UM USUÃ�RIO NO BANCO ATRAVÃ‰S DO ID
+	 * METODO PARA PROCURAR UM USUARIO NO BANCO ATRAVES DO ID
 	 * 
-	 * @param id identificaÃ§Ã£o do usuÃ¡rio
+	 * @param id identificacao do usuario
 	 * @return retorna o usuario
 	 * @throws SQLException
 	 */
@@ -65,11 +65,10 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÃ‰TODO QUE GERA UMA LISTA COM TODOS OS DADOS DE UM USUÃ�RIO ESPECIFICADO PELO
-	 * ID
+	 * METODO QUE GERA UMA LISTA COM TODOS OS DADOS DE UM USUARIO ESPECIFICADO PELO ID
 	 * 
 	 * @param id
-	 * @return lista com os dados do usuÃ¡rio informado
+	 * @return lista com os dados do usuario informado
 	 * @throws SQLException
 	 */
 
@@ -96,9 +95,9 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÃ‰TODO PARA BUSCAR TODOS OS USUÃ�RIOS NO BANCO
+	 * MÉTODO PARA BUSCAR TODOS OS USÚARIOS NO BANCO
 	 * 
-	 * @return lista com todos os usuÃ¡rios
+	 * @return lista com todos os usuarios
 	 * @throws SQLException
 	 */
 
@@ -123,7 +122,7 @@ public class UsuarioDao {
 		}
 	}
 
-	/** MÃ‰TODO PARA CRIAR UMA LISTA COM TODOS OS TELEFONES LIGADOS A UM ÃšNICO USUÃ�RIO
+	/** MÉTODO PARA CRIAR UMA LISTA COM TODOS OS TELEFONES LIGADOS A UM ÚNICO USUARIO
 	 * 
 	 * @param id
 	 * @return
@@ -132,8 +131,10 @@ public class UsuarioDao {
 	public List<Usuario> findAllTel(Integer id) throws SQLException {
 		List<Usuario> listaTel = new ArrayList<>();
 		try (Connection conexao = ConnectionFactory.conectar()) {
-			String sql = "SELECT a.id, a.nome, a.email, b.id, b.ddd, b.numero, b.idUsuario, b.tipo "
-					+ "FROM usuarios a, telefone b WHERE a.id = ? AND a.id = b.idUsuario;";
+			String sql = "SELECT * FROM usuarios a "
+					+ 	 "JOIN telefone b "
+					+ 	 "	ON a.id = b.idUsuario "
+					+ 	 "WHERE a.id = ?;";
 			try (PreparedStatement stm = conexao.prepareStatement(sql)) {
 				stm.setInt(1, id);
 				try (ResultSet rs = stm.executeQuery()) {
@@ -161,9 +162,9 @@ public class UsuarioDao {
 	}
 
 	/**
-	 * MÃ‰TODO PARA ATUALIZAR OS DADOS DO USUÃ�RIO
+	 * MÉTODO PARA ATUALIZAR OS DADOS DO USUARIO
 	 * 
-	 * @return true caso seja concluÃ­do com sucesso
+	 * @return true caso seja concluido com sucesso
 	 * @throws SQLException
 	 */
 
@@ -187,8 +188,8 @@ public class UsuarioDao {
 	/**
 	 * MÃ‰TODOS PARA DELETAR O USUÃ�RIO E TODOS OS NÃšMEROS CADASTRADOS COM ELE
 	 * 
-	 * @param id identificaÃ§Ã£o do usuÃ¡rio
-	 * @return confirmaÃ§Ã£o da aÃ§Ã£o
+	 * @param id identificacao do usuario
+	 * @return confirmaacao da acao
 	 */
 	public boolean delete(Integer id) throws SQLException {
 		try (Connection conexao = ConnectionFactory.conectar()) {

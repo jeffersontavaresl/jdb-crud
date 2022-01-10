@@ -78,7 +78,7 @@
 							</div>
 							
 							<div class="row mb-3">
-								<label for="numero" class="col-sm-2 col-form-label">Tipo</label>
+								<label for="tipo" class="col-sm-2 col-form-label">Tipo</label>
 								<div class="col-sm-10">
 									<select name="tipo" id="tipo" class="form-select">
 										<option value="Comercial">Comercial</option>
@@ -108,7 +108,7 @@
 				numero : numero,
 				tipo : tipo,
 			});
-		});
+		});		
 	});
 </script>
 </html>

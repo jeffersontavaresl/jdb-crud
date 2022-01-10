@@ -29,7 +29,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>telefone</servlet-name>
-		<url-pattern>/telefone</url-pattern>
+		<url-pattern>/cadastroTelefone</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
